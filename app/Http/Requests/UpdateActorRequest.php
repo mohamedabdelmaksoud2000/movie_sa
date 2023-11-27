@@ -11,7 +11,7 @@ class UpdateActorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateActorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'          => ['required'],
+            'image_file'    => ['nullable','image']
         ];
     }
 }

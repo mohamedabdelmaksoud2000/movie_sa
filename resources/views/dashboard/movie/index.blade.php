@@ -15,7 +15,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">All show Categories</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Category</span>
+							<h4 class="content-title mb-0 my-auto">All show Actors</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Actor</span>
 						</div>
 					</div>
 				</div>
@@ -27,20 +27,19 @@
                         <div class="col-lg-12">
                             <div class="card custom-card">
                                 <div class="card-header custom-card-header">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-info"></i> Categories</h6>
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-info"></i> Actors</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table text-md-nowrap" id="example1">
                                             <thead>
                                             <tr>
-                                                <th class="wd-15p border-bottom-0">#</th>
+                                                <th class="wd-5p border-bottom-0">#</th>
+                                                <th class="wd-10p border-bottom-0">Image</th>
                                                 <th class="wd-15p border-bottom-0">Name</th>
-                                                <th class="wd-10p border-bottom-0">year</th>
-                                                <th class="wd-10p border-bottom-0">quality</th>
-                                                <th class="wd-10p border-bottom-0">status</th>
-                                                <th class="wd-10p border-bottom-0">lang</th>
-                                                <th class="wd-10p border-bottom-0">rate</th>
+                                                <th class="wd-15p border-bottom-0">rate</th>
+                                                <th class="wd-15p border-bottom-0">genres</th>
+                                                <th class="wd-15p border-bottom-0">actors</th>
                                                 <th class="wd-10p border-bottom-0">Process</th>
                                             </tr>
                                             </thead>
@@ -48,14 +47,21 @@
                                             @foreach($movies as $movie)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
-                                                <td>{{$movie->title}}</td>
-                                                <td>{{$movie->movie_year}}</td>
-                                                <td>{{$movie->quality}}</td>
-                                                <td>{{$movie->status}}</td>
-                                                <td>{{$movie->lang}}</td>
-                                                <td>{{$movie->rate_imbd}}</td>
+                                                <td><img style="width:50px ; height:50px" src="{{ $movie->imageUrl }}" /></td>
+                                                <td>{{$movie->name}}</td>
+                                                <td>{{$movie->rate}}</td>
+                                                <td>
+                                                    @foreach ($movie->genres()->take(3)->get() as $genre)
+                                                        {{$genre->name}},
+                                                    @endforeach
+                                                </td>
+                                                <td>
+                                                    @foreach ($movie->actors()->take(3)->get() as $actor)
+                                                        {{$actor->name}},
+                                                    @endforeach
+                                                </td>
                                                 <td style="display: flex">
-                                                    <a class="btn btn-success btn-block" href="{{route('movie.edit',$movie->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                    <a class="btn btn-success btn-block" href="{{route('dashboard.movie.edit',$movie->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-danger btn-block" style="margin-top:0" data-toggle="modal" data-target="#deleteDepart" onclick="getid({{$movie->id}})">
                                                         <i class="fa-solid fa-calendar-xmark"></i>
@@ -82,10 +88,11 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Sure delete Category 
+                                    Sure delete movie 
                                 </div>
-                                <form method="POST" action="{{route('movie.destroy')}}">
+                                <form method="POST" action="{{route('dashboard.movie.delete')}}">
                                     @csrf
+                                    @method('DELETE')
                                     <div class="modal-footer">
                                         <input id="inputId" type="hidden" style="display:none" name="id">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

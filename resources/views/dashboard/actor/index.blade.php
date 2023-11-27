@@ -34,8 +34,10 @@
                                         <table class="table text-md-nowrap" id="example1">
                                             <thead>
                                             <tr>
-                                                <th class="wd-15p border-bottom-0">#</th>
+                                                <th class="wd-5p border-bottom-0">#</th>
+                                                <th class="wd-10p border-bottom-0">Image</th>
                                                 <th class="wd-15p border-bottom-0">Name</th>
+                                                <th class="wd-15p border-bottom-0">No. Movies</th>
                                                 <th class="wd-10p border-bottom-0">Process</th>
                                             </tr>
                                             </thead>
@@ -43,9 +45,11 @@
                                             @foreach($actors as $actor)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
+                                                <td><img style="width:50px ; height:50px" src="{{ $actor->imageUrl }}" /></td>
                                                 <td>{{$actor->name}}</td>
+                                                <td>{{$actor->movies->count()}}</td>
                                                 <td style="display: flex">
-                                                    <a class="btn btn-success btn-block" href="{{route('actor.edit',$actor->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                    <a class="btn btn-success btn-block" href="{{route('dashboard.actor.edit',$actor->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-danger btn-block" style="margin-top:0" data-toggle="modal" data-target="#deleteDepart" onclick="getid({{$actor->id}})">
                                                         <i class="fa-solid fa-calendar-xmark"></i>
@@ -74,8 +78,9 @@
                                 <div class="modal-body">
                                     Sure delete Actor 
                                 </div>
-                                <form method="POST" action="{{route('actor.destroy')}}">
+                                <form method="POST" action="{{route('dashboard.actor.delete')}}">
                                     @csrf
+                                    @method('DELETE')
                                     <div class="modal-footer">
                                         <input id="inputId" type="hidden" style="display:none" name="id">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

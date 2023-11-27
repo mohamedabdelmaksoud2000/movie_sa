@@ -3,63 +3,68 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreActorRequest;
+use App\Http\Requests\UpdateActorRequest;
+use App\Models\Actor;
+use App\Traits\ImageFile;
 use Illuminate\Http\Request;
 
 class ActorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    use ImageFile;
+
     public function index()
     {
-        //
+        $actors = Actor::all();
+        return view('dashboard.actor.index',compact('actors'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('dashboard.actor.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreActorRequest $request)
     {
-        //
+        $request = $this->uploadImage($request , 'actor');
+        $actor = Actor::create($request->all());
+        toastr()->success('actor has been created successfully!');
+        return redirect()->route('dashboard.actor.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $actor = Actor::find($id);
+        return view('dashboard.actor.update',compact('actor'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateActorRequest $request, string $id)
     {
-        //
+        $actor = Actor::find($id);
+        $request = $this->updateImage($request,$actor->image,'actor');
+        $actor->update($request->all());
+        toastr()->success('actor has been updated successfully!');
+        return redirect()->route('dashboard.actor.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $actor = Actor::find($request->id);
+        if(!$actor->movies->count())
+        {
+            $this->deleteImage($actor->image,'actor');
+            $actor->delete();
+            toastr()->success('actor has been deleted successfully!');
+        }else
+        {
+            toastr()->error('actor has movies,you can\'t delete');
+        }
+        return redirect()->route('dashboard.actor.index');
     }
 }

@@ -11,7 +11,7 @@ class UpdateMovieRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdateMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'          => ['required'],
+            'rate'          => ['required','max:10'],
+            'description'   => ['required'],
+            'image_file'    => ['nullable','image'],
+            'trailer_file'  => ['nullable','mimes:mp4'],
+            'actors'        => ['required','array'],
+            'actors.*'      => ['required','exists:actors,id'],
+            'genres'        => ['required','array'],
+            'genres.*'      => ['required','exists:genres,id'],
         ];
     }
 }

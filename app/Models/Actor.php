@@ -18,4 +18,9 @@ class Actor extends Model
         return $this->belongsToMany(Movie::class,'actor_movie','actor_id','movie_id');
     }
 
+    public function getImageUrlAttribute()
+    {
+        return asset('app/actor/'.$this->image);
+    }
+
 }

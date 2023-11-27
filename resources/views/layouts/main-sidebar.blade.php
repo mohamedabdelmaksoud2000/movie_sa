@@ -26,24 +26,24 @@
 					</li>
 					<li class="side-item side-item-category">General
                     <li class="slide">
-                        <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Category</span><i class="angle fe fe-chevron-down"></i></a>
+                        <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Genres</span><i class="angle fe fe-chevron-down"></i></a>
                         <ul class="slide-menu">
-                            <li><a class="slide-item" href="{{route('category.index')}}">Show Categories</a></li>
-                            <li><a class="slide-item" href="{{route('category.create')}}">Insert Category</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.genre.index')}}">Show all genres</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.genre.create')}}">add genre</a></li>
                         </ul>
                     </li>
                     <li class="slide">
                         <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Actor</span><i class="angle fe fe-chevron-down"></i></a>
                         <ul class="slide-menu">
-                            <li><a class="slide-item" href="{{route('actor.index')}}">Show Actors</a></li>
-                            <li><a class="slide-item" href="{{route('actor.create')}}">insert Actor</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.actor.index')}}">Show Actors</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.actor.create')}}">insert Actor</a></li>
                         </ul>
                     </li>
                     <li class="slide">
                         <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Movie</span><i class="angle fe fe-chevron-down"></i></a>
                         <ul class="slide-menu">
-                            <li><a class="slide-item" href="{{route('movie.index')}}">Show Movie</a></li>
-                            <li><a class="slide-item" href="{{route('movie.create')}}">Insert Movie</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.movie.index')}}">Show Movie</a></li>
+                            <li><a class="slide-item" href="{{route('dashboard.movie.create')}}">Insert Movie</a></li>
                         </ul>
                     </li>
                     <li class="slide">
@@ -53,18 +53,6 @@
                             <li><a class="slide-item" href="#">Insert User</a></li>
                         </ul>
                     </li>
-					<li class="slide ">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3"/><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"/></svg><span class="side-menu__label">Submenus</span><i class="angle fe fe-chevron-down"></i></a>
-						<ul class="slide-menu">
-							<li class="sub-slide">
-								<a class="sub-side-menu__item" data-toggle="sub-slide" href="{{ url('/' . $page='#') }}"><span class="sub-side-menu__label">Level1</span><i class="sub-angle fe fe-chevron-down"></i></a>
-								<ul class="sub-slide-menu">
-									<li><a class="sub-slide-item" href="{{ url('/' . $page='#') }}">Level01</a></li>
-									<li><a class="sub-slide-item" href="{{ url('/' . $page='#') }}">Level02</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
 				</ul>
 			</div>
 		</aside>
