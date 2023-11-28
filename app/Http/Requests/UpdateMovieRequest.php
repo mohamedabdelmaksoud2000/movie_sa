@@ -25,6 +25,8 @@ class UpdateMovieRequest extends FormRequest
             'name'          => ['required'],
             'rate'          => ['required','max:10'],
             'description'   => ['required'],
+            'status'        => ['required'],
+            'year'          => ['required'],
             'image_file'    => ['nullable','image'],
             'trailer_file'  => ['nullable','mimes:mp4'],
             'actors'        => ['required','array'],

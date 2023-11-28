@@ -37,7 +37,10 @@
                                                 <th class="wd-5p border-bottom-0">#</th>
                                                 <th class="wd-10p border-bottom-0">Image</th>
                                                 <th class="wd-15p border-bottom-0">Name</th>
-                                                <th class="wd-15p border-bottom-0">rate</th>
+                                                <th class="wd-10p border-bottom-0">Year</th>
+                                                <th class="wd-10p border-bottom-0">Status</th>
+                                                <th class="wd-10p border-bottom-0">Views</th>
+                                                <th class="wd-10p border-bottom-0">rate</th>
                                                 <th class="wd-15p border-bottom-0">genres</th>
                                                 <th class="wd-15p border-bottom-0">actors</th>
                                                 <th class="wd-10p border-bottom-0">Process</th>
@@ -49,6 +52,9 @@
                                                 <td>{{$loop->iteration}}</td>
                                                 <td><img style="width:50px ; height:50px" src="{{ $movie->imageUrl }}" /></td>
                                                 <td>{{$movie->name}}</td>
+                                                <td>{{$movie->year}}</td>
+                                                <td>{{$movie->status}}</td>
+                                                <td>{{$movie->views}}</td>
                                                 <td>{{$movie->rate}}</td>
                                                 <td>
                                                     @foreach ($movie->genres()->take(3)->get() as $genre)

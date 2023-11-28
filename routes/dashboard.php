@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\MovieController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth','role:admin'])
+->prefix('admin')
 ->name('dashboard.')
 ->group(function(){
     

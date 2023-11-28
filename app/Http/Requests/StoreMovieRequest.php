@@ -26,6 +26,8 @@ class StoreMovieRequest extends FormRequest
             'rate'          => ['required','max:10'],
             'description'   => ['required'],
             'image_file'    => ['required','image'],
+            'status'        => ['required'],
+            'year'          => ['required'],
             'trailer_file'  => ['required','mimes:mp4'],
             'actors'        => ['required','array'],
             'actors.*'      => ['required','exists:actors,id'],

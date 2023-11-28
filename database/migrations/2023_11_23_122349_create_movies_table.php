@@ -17,6 +17,9 @@ return new class extends Migration
             $table->longText('description');
             $table->string('image');
             $table->string('trailer');
+            $table->string('year');
+            $table->string('status')->default('work');
+            $table->integer('views')->default(0);
             $table->decimal('rate');
             $table->timestamps();
         });

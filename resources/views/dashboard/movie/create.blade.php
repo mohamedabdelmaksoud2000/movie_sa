@@ -65,6 +65,23 @@
                                         <label for="rate"><i class="fa-solid fa-file-signature"></i> rate</label>
                                         <input type="number" name="rate" class="form-control" id="rate" placeholder="insert rate">
                                     </div>
+                                    <div class="col-sm-12 col-md-6 form-group">
+                                        <p class="mg-b-10">status</p>
+                                        <select name="status" class="form-control">
+                                            <option label="choose status">
+                                            </option>
+                                            <option value="available">
+                                                available
+                                            </option>
+                                            <option value="soon">
+                                                Cooming soon
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label for="year"><i class="fa-solid fa-file-signature"></i> year</label>
+                                        <input type="number" name="year" class="form-control" id="year" placeholder="insert year">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +159,7 @@
                             </div>
                             <div class="card-body row">
                                 <div class="form-group col-sm-12">
-                                    <textarea id="editor" class="ckeditor form-control" name="description"></textarea>
+                                    <textarea id="editor" class="form-control" name="description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +171,7 @@
                         <div class="card custom-card">
                             <div class="card-body row">
                                 <div class="col-sm-6" style="margin: 0 auto">
-                                    <input type="submit" class="btn btn-success btn-block" value="add category">
+                                    <input type="submit" class="btn btn-success btn-block" value="add movie">
                                 </div>
                             </div>
                         </div>
@@ -222,11 +239,7 @@
 <!--Internal Fileuploads js-->
 <script src="{{URL::asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
     $(document).ready(function () {
             var genre =document.getElementById('genre');
             var actor =document.getElementById('actor');

@@ -14,6 +14,9 @@ class Movie extends Model
         'description',
         'image',
         'rate',
+        'year',
+        'status',
+        'views',
         'trailer',
     ];
 
@@ -30,6 +33,11 @@ class Movie extends Model
     public function getImageUrlAttribute()
     {
         return asset('app/movie/'.$this->image);
+    }
+
+    public function getTrailerUrlAttribute()
+    {
+        return asset('app/trailer/'.$this->trailer);
     }
 
 }

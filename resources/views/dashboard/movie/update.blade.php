@@ -65,6 +65,27 @@
                                         <label for="rate"><i class="fa-solid fa-file-signature"></i> rate</label>
                                         <input type="number" name="rate" class="form-control" id="rate" placeholder="insert rate" value="{{ $movie->rate }}">
                                     </div>
+                                    <div class="col-sm-12 col-md-6 form-group">
+                                        <p class="mg-b-10">status</p>
+                                        <select name="status" class="form-control">
+                                            <option label="choose status">
+                                            </option>
+                                            <option value="available" @if ($movie->status == 'available')
+                                                selected
+                                            @endif>
+                                                available
+                                            </option>
+                                            <option value="soon" @if ($movie->status == 'soon')
+                                                selected
+                                            @endif>
+                                                Cooming soon
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label for="year"><i class="fa-solid fa-file-signature"></i> year</label>
+                                        <input type="number" name="year" class="form-control" id="year" placeholder="insert year" value="{{ $movie->year }}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +204,7 @@
                             </div>
                             <div class="card-body row">
                                 <div class="form-group col-sm-12">
-                                    <textarea id="editor" class="ckeditor form-control" name="description">{{ $movie->description }}</textarea>
+                                    <textarea id="editor" class="form-control" name="description">{{ $movie->description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +216,7 @@
                         <div class="card custom-card">
                             <div class="card-body row">
                                 <div class="col-sm-6" style="margin: 0 auto">
-                                    <input type="submit" class="btn btn-success btn-block" value="add category">
+                                    <input type="submit" class="btn btn-success btn-block" value="save">
                                 </div>
                             </div>
                         </div>
@@ -265,9 +286,6 @@
 <script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
     $(document).ready(function () {
             var genre =document.getElementById('genre');
             var actor =document.getElementById('actor');
